@@ -31,7 +31,9 @@ public class Game {
     }
     public void playGame(){
         loadTasks();
-        loadObjectives();     
+        loadObjectives();   
+        searchForTreasure();
+        engageInBattle(battle);
     }
     public void searchForTreasure(){
         findTreasure();
@@ -51,7 +53,8 @@ public class Game {
 
     private void loadObjectives(){
         //This will give the GameCharcter a number of objectives to complete
-        System.out.println("Objective 1: Gather 10 pieces of gold");
+        System.out.println("Objective 1: Gather 10 pieces of gold" + '\n' +
+                "Objective 2: Fight off the Elf Enemies");
     }
     private void fight(boolean battle){
         //This will ask the GameCharacter if they would like to pursue a fight
@@ -70,9 +73,11 @@ public class Game {
     }
     private void findTreasure(){
         //This will allow the GameCharcter to find treasure in the mapArea
+        System.out.println("You have found a treasure");
     }
     private void storeTreasure(){
         //This will allow the GameCharacter to store the found treasure in their gear array
+        System.out.println("Treasure has been stored");
     }
     public String[] getBattleOutcome() {
         return battleOutcome;
