@@ -27,7 +27,7 @@ public class GameCharacter {
         this.manaPoints = manaPoints;
         this.gear = gear;
     }
-//variable to hold the direction the GameCharcter should head
+    //variable to hold the direction the GameCharcter should head
     private String direction;
     
 //This method encapsulates 3 different methods for the GameCharacter to perform a task
@@ -61,7 +61,6 @@ public class GameCharacter {
     private void encounterEnemy(){
         System.out.println("There is an enemy nearby. Prepare for battle.");
     }
-    
     public String[] getGear() {
         return gear;
     }
