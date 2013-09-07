@@ -16,6 +16,7 @@ public class Startup {
         employee.setSsn("333-1234");
         
         employee.hireEmployee();
+        employee.setCubeId("A4");
         
         System.out.println("The employee's status is: " + employee.getStatus());
     }

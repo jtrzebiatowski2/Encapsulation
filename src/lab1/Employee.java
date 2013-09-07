@@ -77,7 +77,8 @@ public class Employee {
     public String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
-            return "Orientation is complete";
+            return "Orientation is complete\nEmployee cube number is: " + cubeId;
+            
         } else {
             return "Orientation in progress...";
         }
