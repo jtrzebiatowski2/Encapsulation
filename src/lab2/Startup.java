@@ -18,6 +18,7 @@ public class Startup{
         player1.setRace("Dwarf");
         player1.setHealthPoints(75);
         player1.setManaPoints(50);
+       
         
         String direction;
         Scanner keyboard = new Scanner(System.in);

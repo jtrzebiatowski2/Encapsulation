@@ -15,10 +15,11 @@ public class GameCharacter {
     private int manaPoints;
     private String [] gear;
     
+//Default Constructor
    public GameCharacter(){
        
    }
-
+//Game Character Constructor
     public GameCharacter(String name, String race, int healthPoints, int manaPoints, String[] gear) {
         this.name = name;
         this.race = race;
@@ -26,15 +27,17 @@ public class GameCharacter {
         this.manaPoints = manaPoints;
         this.gear = gear;
     }
+//variable to hold the direction the GameCharcter should head
     private String direction;
     
+//This method encapsulates 3 different methods for the GameCharacter to perform a task
     public void goOnAnAdventure(String direction){
         walk(direction);
         findTreasure();
         encounterEnemy();
         
     }
-    
+ //Walk method that determines which direction the GameCharacter should travel
     private void walk(String direction){
         System.out.println("You are heading " + direction);
         if("North".equals(direction)){
@@ -50,14 +53,15 @@ public class GameCharacter {
             }
         }
     }
+//Method indicating the GameCharcter has found some gold
     private void findTreasure(){
         System.out.println("You have found some gold");
     }
+//Method showing the GameCharacter has encountered an enemy
     private void encounterEnemy(){
         System.out.println("There is an enemy nearby. Prepare for battle.");
     }
     
-
     public String[] getGear() {
         return gear;
     }
@@ -102,6 +106,7 @@ public class GameCharacter {
     public String toString() {
         return super.toString(); 
     }
+
    
     
 }
