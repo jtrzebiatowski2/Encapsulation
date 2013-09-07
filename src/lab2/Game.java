@@ -59,6 +59,7 @@ public class Game {
     private void fight(boolean battle){
         //This will ask the GameCharacter if they would like to pursue a fight
         if(battle = true){
+            System.out.println("You have encountered an ememy");
             System.out.println("Let's fight to the death");
         }
         else if (battle = false){
