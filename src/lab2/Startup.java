@@ -26,6 +26,11 @@ public class Startup{
         direction = keyboard.nextLine();
         
         player1.goOnAnAdventure(direction);
+        
+        Game game1 = new Game();
+        
+        game1.playGame();
+        
     }
     
    

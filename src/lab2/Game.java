@@ -46,12 +46,12 @@ public class Game {
     
     private void loadTasks(){
         //This will give the GameCharacter a number of tasks that may be performed
-        System.out.println("Discover new areas");
+        System.out.println("Task 1: Discover new areas");
     }
 
     private void loadObjectives(){
         //This will give the GameCharcter a number of objectives to complete
-        System.out.println("Gather 10 pieces of gold");
+        System.out.println("Objective 1: Gather 10 pieces of gold");
     }
     private void fight(boolean battle){
         //This will ask the GameCharacter if they would like to pursue a fight
