@@ -17,7 +17,7 @@ public class GameWorld {
     public GameWorld(){
         
     }
-
+//This constructor creates a particular map area 
     public GameWorld(String mapArea, String weather, GameCharacter[] players, GameCharacter[] enemies) {
         this.mapArea = mapArea;
         this.weather = weather;
@@ -25,7 +25,7 @@ public class GameWorld {
         this.enemies = enemies;
     }
     
-    
+ //This method renders and displays the map area and surrounding enemies and treasures
     public void createGameWorld(String mapArea, String weather){
         renderMapArea(mapArea);
         displayWeather(weather);
@@ -46,19 +46,19 @@ public class GameWorld {
         //This will make the treasure availale to the GameCharcter when he stumbles upon the area of treasure
     }
     
-
+//Sets the map area in the game
     public void setMapArea(String mapArea) {
         this.mapArea = mapArea;
     }
-
+//Sets the weather in the game
     public void setWeather(String weather) {
         this.weather = weather;
     }
-
+//Sets enemies withing the game
     public void setEnemies(GameCharacter[] enemies) {
         this.enemies = enemies;
     }
-
+//Sets players within the game
     public void setPlayers(GameCharacter[] players) {
         this.players = players;
     }
