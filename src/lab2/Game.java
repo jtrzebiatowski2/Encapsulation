@@ -11,7 +11,7 @@ package lab2;
 public class Game {
     private int characterLevel;
     private String characterTask;
-    private String battle;
+    private boolean battle;
     private String[] objectives;
     private String[] battleOutcome;
     private String[] treasures;
@@ -37,22 +37,33 @@ public class Game {
         findTreasure();
         storeTreasure();
     }
-    public void engageInBattle(String battle){
+    public void engageInBattle(boolean battle){
+        battle = true;
         fight(battle);
         displayBattleOutcome();
         
     }
     
     private void loadTasks(){
-        //This will give the GameCharacter a number of tasks that may be performed    
+        //This will give the GameCharacter a number of tasks that may be performed
+        System.out.println("Discover new areas");
     }
 
     private void loadObjectives(){
         //This will give the GameCharcter a number of objectives to complete
+        System.out.println("Gather 10 pieces of gold");
     }
-    private void fight(String battle){
+    private void fight(boolean battle){
         //This will ask the GameCharacter if they would like to pursue a fight
-    }
+        if(battle = true){
+            System.out.println("Let's fight to the death");
+        }
+        else if (battle = false){
+            System.out.println("You ran away in fear");
+            
+        }
+      }
+    
     private void displayBattleOutcome(){
         //This will display the outcome of a battle based upon certain criteria like GameCharatcer HP and Mana
         //and the enemies HP and Mana etc.
