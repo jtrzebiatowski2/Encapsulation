@@ -17,19 +17,19 @@ public class Gui {
     private int damageDealt;
     private int damageTaken;
     
-    public void attackEnemy(GameCharacter[] enemy){
+    public void attackEnemy(GameCharacter[] enemy, int damageDealt){
         moveGameCharacter();
         drawWeapon();
         attack = true;
         attack();
-        getDamageDealt();
+        getDamageDealt(damageDealt);
         
     }
-    public void defendGameCharacter(GameCharacter[] player){
+    public void defendGameCharacter(GameCharacter[] player, int damageTaken){
         useShield();
         defend = true;
         defend();
-        getDamageTaken();
+        getDamageTaken(damageTaken);
     }
     
     
@@ -58,11 +58,11 @@ public class Gui {
         }
     }
 
-    public int getDamageDealt() {
+    public int getDamageDealt(int damageDealt) {
         return damageDealt;
     }
 
-    public int getDamageTaken() {
+    public int getDamageTaken(int damageTaken) {
         return damageTaken;
     }
 
