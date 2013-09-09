@@ -13,12 +13,12 @@ public class Startup {
         Employee employee = new Employee();
         employee.setFirstName("Peter");
         employee.setLastName("Piper");
-        employee.setSsn("333-1234");
+        employee.setSocialSecurityNumber("333-1234");
         
         employee.hireEmployee();
         employee.setCubeId("A4");
         
-        System.out.println("The employee's status is: " + employee.getStatus());
+        System.out.println("The employee's status is: " + employee.getEmployeeStatus());
     }
     
     

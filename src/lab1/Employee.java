@@ -14,12 +14,12 @@ import java.util.Date;
 public class Employee {
     private String firstName;
     private String lastName;
-    private String ssn;
+    private String socialSecurityNumber;
     private Date birthDate;
-    private boolean metWithHr;
+    private boolean metWithHumanResourceDepartment;
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
-    private boolean movedIn;
+    private boolean movedInOffice;
     private String cubeId;
 
     public Employee() {
@@ -36,12 +36,12 @@ public class Employee {
 
     // Assume this must be performed first
     private void meetWithHrForBenefitAndSalryInfo() {
-        metWithHr = true;
+        metWithHumanResourceDepartment = true;
     }
 
     // Assume this is must be performed second
     private void meetDepartmentStaff() {
-        if(metWithHr) {
+        if(metWithHumanResourceDepartment) {
             metDeptStaff = true;
         } else {
             throw new IllegalStateException("Sorry, you cannot meet with "
@@ -51,7 +51,7 @@ public class Employee {
 
     // Assume this must be performed third
     private void reviewDeptPolicies() {
-        if(metWithHr && metDeptStaff) {
+        if(metWithHumanResourceDepartment && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
             throw new IllegalStateException("Sorry, you cannot review "
@@ -62,9 +62,9 @@ public class Employee {
 
     // Assume this must be performed 4th
     private void moveIntoCubicle(String cubeId) {
-        if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
+        if(metWithHumanResourceDepartment && metDeptStaff && reviewedDeptPolicies) {
             this.cubeId = cubeId;
-            this.movedIn = true;
+            this.movedInOffice = true;
         } else {
             throw new IllegalStateException("Sorry, you cannot move in to a "
                     + "cubicle until you have first met with HR "
@@ -74,9 +74,9 @@ public class Employee {
 
     }
 
-    public String getStatus() {
-        if(metWithHr && metDeptStaff
-           && reviewedDeptPolicies && movedIn) {
+    public String getEmployeeStatus() {
+        if(metWithHumanResourceDepartment && metDeptStaff
+           && reviewedDeptPolicies && movedInOffice) {
             return "Orientation is complete\nEmployee cube number is: " + cubeId;
             
         } else {
@@ -100,8 +100,8 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public void setSsn(String ssn) {    
-        this.ssn = ssn;
+    public void setSocialSecurityNumber(String socialSecurityNumber) {    
+        this.socialSecurityNumber = socialSecurityNumber;
     }
 
     public Date getBirthDate() {
@@ -120,8 +120,8 @@ public class Employee {
         return firstName;
     }
 
-    public String getSsn() {
-        return ssn;
+    public String getSocialSecurityNumber() {
+        return socialSecurityNumber;
     }
 
     
