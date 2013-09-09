@@ -21,17 +21,28 @@ public class Employee {
     private boolean reviewedDeptPolicies;
     private boolean movedInOffice;
     private String cubeId;
-
+    private final String DEPT_STAFF_ERROR_MESSAGE = "Sorry, you cannot meet with department staff until you have met with HR";
+    private final String REVIEW_DEPT_POLICIES_ERROR_MESSAGE = "Sorry, you cannot review "
+                    + " department policies until you have first met with HR "
+                    + "and then with department staff.";
+    private final String MOVE_INTO_CUBICLE_ERROR_MESSAGE = "Sorry, you cannot move in to a "
+                    + "cubicle until you have first met with HR "
+                    + "and then with department staff, and then reviewed"
+                    + "department policies.";
+    
+    private final int MIN_LENGTH = 1;
+    private final int SSN_LENGTH = 11;
+    
     public Employee() {
 
     }
     //This method combines 4 methods in the hiring process and may be called to reduce confusion. 
     //The methods also become encapsulated with this one method.
-    public void hireEmployee(){
+    public void hireEmployee(String cubeId){
         meetWithHrForBenefitAndSalryInfo();
         meetDepartmentStaff();
         reviewDeptPolicies();
-        moveIntoCubicle((cubeId));
+        moveIntoCubicle(cubeId);
     }
 
     // Assume this must be performed first
@@ -40,12 +51,11 @@ public class Employee {
     }
 
     // Assume this is must be performed second
-    private void meetDepartmentStaff() {
+    public void meetDepartmentStaff() {
         if(metWithHumanResourceDepartment) {
             metDeptStaff = true;
         } else {
-            throw new IllegalStateException("Sorry, you cannot meet with "
-                    + "department staff until you have met with HR.");
+            throw new IllegalStateException(DEPT_STAFF_ERROR_MESSAGE);
         }
     }
 
@@ -54,9 +64,7 @@ public class Employee {
         if(metWithHumanResourceDepartment && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
-            throw new IllegalStateException("Sorry, you cannot review "
-                    + " department policies until you have first met with HR "
-                    + "and then with department staff.");
+            throw new IllegalStateException(REVIEW_DEPT_POLICIES_ERROR_MESSAGE);
         }
     }
 
@@ -66,12 +74,8 @@ public class Employee {
             this.cubeId = cubeId;
             this.movedInOffice = true;
         } else {
-            throw new IllegalStateException("Sorry, you cannot move in to a "
-                    + "cubicle until you have first met with HR "
-                    + "and then with department staff, and then reviewed"
-                    + "department policies.");
+            throw new IllegalStateException(MOVE_INTO_CUBICLE_ERROR_MESSAGE);
         }
-
     }
 
     public String getEmployeeStatus() {
@@ -94,18 +98,28 @@ public class Employee {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        if(firstName == null || firstName.length() < MIN_LENGTH){
+            throw new IllegalArgumentException();
+        }
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+        if(lastName == null || lastName.length() < MIN_LENGTH){
+            throw new IllegalArgumentException();
+        }
     }
 
     public void setSocialSecurityNumber(String socialSecurityNumber) {    
         this.socialSecurityNumber = socialSecurityNumber;
+        if(socialSecurityNumber.length() != SSN_LENGTH){
+            throw new IllegalArgumentException();
+        }
     }
 
     public Date getBirthDate() {
         return birthDate;
+        //Birthdate Validation Code goes here
     }
 
     public String getCubeId() {
