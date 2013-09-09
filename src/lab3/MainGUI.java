@@ -23,13 +23,13 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
     private final int MAX_RECS = 10;
     private final int NOT_FOUND = -1;
 
-    private String partNo;
+    private String partNumber;
     private int foundIndex = NOT_FOUND;
-    private String partDesc;
+    private String partDescription;
     private double partPrice;
 
-    private String[] partNums = new String[10];
-    private String[] partDescs = new String[10];
+    private String[] partNumbers = new String[10];
+    private String[] partDescriptions = new String[10];
     private double[] partPrices = new double[10];
     private int emptyRow;
 
@@ -259,8 +259,8 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
     private void btnEnterRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterRecordActionPerformed
         foundIndex = NOT_FOUND;
 
-        partNo = this.txtNewProdNo.getText();
-        partDesc = this.txtNewProdDesc.getText();
+        partNumber = this.txtNewProdNo.getText();
+        partDescription = this.txtNewProdDesc.getText();
         try {
             partPrice = Double.parseDouble(this.txtNewProdPrice.getText());
         } catch(Exception e) {
@@ -275,7 +275,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     "Sorry, you have reach the maximum of 10 items.\n"
                     + "No more items can be saved.", "Maximum Reached", JOptionPane.WARNING_MESSAGE);
 
-        } else if (partNo.length() == 0 || partDesc.length() == 0 
+        } else if (partNumber.length() == 0 || partDescription.length() == 0 
                 || this.txtNewProdPrice.getText().length() == 0)
         {
             JOptionPane.showMessageDialog(this, 
@@ -284,8 +284,8 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
             this.txtNewProdNo.requestFocus();
 
         } else {
-            partNums[emptyRow] = partNo;
-            partDescs[emptyRow] = partDesc;
+            partNumbers[emptyRow] = partNumber;
+            partDescriptions[emptyRow] = partDescription;
             partPrices[emptyRow] = partPrice;
             this.emptyRow += 1;
         }
@@ -295,10 +295,10 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
 }//GEN-LAST:event_btnEnterRecordActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String searchNum = txtSearchPartNo.getText();
-        if (searchNum != null && searchNum.length() > 0) {
-            for (int i = 0; i < this.partNums.length; i++) {
-                if (searchNum.equalsIgnoreCase(partNums[i])) {
+        String searchNumber = txtSearchPartNo.getText();
+        if (searchNumber != null && searchNumber.length() > 0) {
+            for (int i = 0; i < this.partNumbers.length; i++) {
+                if (searchNumber.equalsIgnoreCase(partNumbers[i])) {
                     foundIndex = i;
                     break;
                 }
@@ -308,13 +308,13 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     "Part Number not found. Please try again.",
                     "Not Found", JOptionPane.WARNING_MESSAGE);
            } else {
-                txtCurProdNo.setText(partNums[foundIndex]);
-                txtCurDesc.setText(partDescs[foundIndex]);
+                txtCurProdNo.setText(partNumbers[foundIndex]);
+                txtCurDesc.setText(partDescriptions[foundIndex]);
                 txtCurPrice.setText("" + partPrices[foundIndex]);
            }
         } else {
                 JOptionPane.showMessageDialog(this,
-                    "Please enter a Part No. to search",
+                    "Please enter a Part Number to search",
                     "Entry Missing", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -330,8 +330,8 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     "Part Number not found. Please try again.",
                     "Search Failure", JOptionPane.WARNING_MESSAGE);
         } else {
-            partNums[foundIndex] = txtCurProdNo.getText();
-            partDescs[foundIndex] = txtCurDesc.getText();
+            partNumbers[foundIndex] = txtCurProdNo.getText();
+            partDescriptions[foundIndex] = txtCurDesc.getText();
             partPrices[foundIndex] = Double.parseDouble(txtCurPrice.getText());
             displayList();
             JOptionPane.showMessageDialog(this,
@@ -349,8 +349,8 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         listProducts.setText(""); // clear list
         listProducts.append("Part\tDesc\t\tPrice\n====\t====\t\t=====\n");
         for (int i = 0 ; i < emptyRow; i++) {
-            String rLine = partNums[i] + "\t"
-                    + partDescs[i] + "\t\t" + nf.format(partPrices[i]) + "\n";
+            String rLine = partNumbers[i] + "\t"
+                    + partDescriptions[i] + "\t\t" + nf.format(partPrices[i]) + "\n";
             listProducts.append(rLine);
         }
     }
@@ -368,13 +368,13 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     partPrices[i-1] = partPrices[i];
                     partPrices[i] = Double.parseDouble(temp);
 
-                    temp = partNums[i-1];
-                    partNums[i-1] = partNums[i];
-                    partNums[i] = temp;
+                    temp = partNumbers[i-1];
+                    partNumbers[i-1] = partNumbers[i];
+                    partNumbers[i] = temp;
 
-                    temp = partDescs[i-1];
-                    partDescs[i-1] = partDescs[i];
-                    partDescs[i] = temp;
+                    temp = partDescriptions[i-1];
+                    partDescriptions[i-1] = partDescriptions[i];
+                    partDescriptions[i] = temp;
                 }
             }
             // Once it's sorted, display in the list box
