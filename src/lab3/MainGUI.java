@@ -20,8 +20,8 @@ import javax.swing.*;
  * @version     1.00
 */
 public class MainGUI extends javax.swing.JFrame implements ActionListener {
-    private final int MAX_RECS = 10;
-    private final int NOT_FOUND = -1;
+    private static final int MAX_RECS = 10;
+    private static final int NOT_FOUND = -1;
 
     private String partNumber;
     private int foundIndex = NOT_FOUND;
